@@ -26,7 +26,7 @@ const mostrarIdPelicula = () => {
             <h5 class="card-title text-muted text-center mt-1">${body.title}</h5>
             <p class="card-text font-monospace text-center mb-0">Fecha de lanzamiento: ${body.release_date}</p>
             <p class="card-text text-center fw-lighter mb-0">Duración: ${body.runtime} minutos</p>
-            <a href="${}"<button type="button" class="btn btn-dark"></button>
+            <div class="d-flex justify-content-center"> <a href="${body.homepage}" class="btn btn-dark w-25">Link a sitio oficial</a> </div>
             <div class="d-flex justify-content-center"><p class="card-text m-3 col-sm-8 col-md-10 col-xxl-10 col-xl-10 col-lg-10"><span class="fw-bold">Detalles:</span> ${body.overview}<p></div>
             `
             mostrarGeneros(body)
@@ -87,27 +87,36 @@ const mostrarIdPelicula = () => {
 
     const presupuestoPeliculas = (body) => {
         let presupuesto = body.budget;
-        let presupuestoFormeateado = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(presupuesto);
-        
-        const presupuestoBoton = `
-        <span class="badge bg-success">
-        Presupuesto: <span class="badge bg-secondary">${presupuestoFormeateado} USD</span>
-        </span>
-        `
-        presupuestoDiv.insertAdjacentHTML('afterbegin', presupuestoBoton)
+
+        if (presupuesto > 0) {
+            let presupuestoFormeateado = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(presupuesto);
+            
+            const presupuestoBoton = `
+            <span class="badge bg-success">
+            Presupuesto: <span class="badge bg-secondary">${presupuestoFormeateado} USD</span>
+            </span>
+            `
+            presupuestoDiv.insertAdjacentHTML('afterbegin', presupuestoBoton)
+        }
+
 
     }
 
     const recaudacionPeliculas = (body) => {
         let recaudacion = body.revenue;
-        let recaudacionFormateado = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(recaudacion);
 
-        const recaudacionBoton = `
-        <span class="badge bg-success">
-        Recaudación: <span class="badge bg-secondary">${recaudacionFormateado} USD</span>
-        </span>
-        `
-        recaudacionDiv.insertAdjacentHTML('afterbegin', recaudacionBoton)
+        if (recaudacion > 0) {
+            let recaudacionFormateado = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'}).format(recaudacion);
+
+            const recaudacionBoton = `
+            <span class="badge bg-success">
+            Recaudación: <span class="badge bg-secondary">${recaudacionFormateado} USD</span>
+            </span>
+            `
+            recaudacionDiv.insertAdjacentHTML('afterbegin', recaudacionBoton)
+        }
+
+
     }
 
     mostrarIdPelicula();

@@ -10,9 +10,9 @@ const containerCards = document.getElementById('resultadosSearch'); // cuando se
 
 
 const main=(palabra)=>{
-    const urlSearch = `${apiUrl}${palabra}${apiUrlT}`
+    const urlSearch = `${apiUrl}${palabra.cajaBusqueda}${apiUrlT}`
     console.log(urlSearch)
-    fetch(apiSearchMovie).then((respuesta)=> respuesta.json())
+    fetch(urlSearch).then((respuesta)=> respuesta.json())
     .then((body)=>{
         //console.log(body)
         body.results.forEach((pelicula)=>{

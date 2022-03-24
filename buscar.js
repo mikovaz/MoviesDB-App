@@ -31,7 +31,6 @@ const main=(palabra)=>{
                 <div class="card-body">
                     <h3>${pelicula.original_title}</h3>
                     <h6 class="text-muted">Fecha de lanzamiento: ${pelicula.release_date}</h6>
-                     <p class="card-text">${pelicula.overview}</p>
                      <a href="./pelicula.html?id=${pelicula.id}" ><button type="button" class="btn btn-primary" >Detalles</button></a>
                 </div>
             </div>

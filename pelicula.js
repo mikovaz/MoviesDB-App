@@ -57,7 +57,7 @@ const mostrarIdPelicula = () => {
            <div class="carousel-item active">
                     <div class="d-flex justify-content-center"><img src="${urlPoster}${body.cast[0].profile_path}" class="d-block rounded" style="width: 350px; height:350px" alt="..."></div>
                     <div class="carousel-caption d-none d-md-block">
-                      <h5 class="text-info">${body.cast[0].original_name}</h5>
+                      <h5 class="">${body.cast[0].original_name}</h5>
                       <p>${body.cast[0].character}</p>
                     </div>
             </div>

@@ -7,12 +7,14 @@ const apiUrlT=`&page=1&include_adult=false`
 
 const containerCards = document.getElementById('resultadosSearch'); // cuando se pone un punto es porque realiza la busqueda por el nombre de la clase
 
-const main=()=>{
+const main=(palabra)=>{
+    const urlSearch = `${apiUrl}${palabra}${apiUrlT}`
+    console.log(urlSearch)
     fetch(apiSearchMovie).then((respuesta)=> respuesta.json())
     .then((body)=>{
         //console.log(body)
         body.results.forEach((pelicula)=>{
-            console.log(pelicula)
+            //console.log(pelicula)
 
             const card = `
             <div class="card col-sm-3 m-3 shadow-lg bg-light" ondblclick="irPelicula('${pelicula.id}')">

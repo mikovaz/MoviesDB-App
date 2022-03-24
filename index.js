@@ -1,3 +1,4 @@
+/**GITHUB TEST */
 const containerCards = document.querySelector('.row'); // cuando se pone un punto es porque realiza la busqueda por el nombre de la clase
 
 console.log(containerCards)

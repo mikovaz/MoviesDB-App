@@ -7,6 +7,7 @@ const urlApiCreditos=`https://api.themoviedb.org/3/movie/${id}/credits?api_key=4
 const apiUrl = 'https://api.themoviedb.org/3';
 const apiKey = '4e190b3de4323c16e946a007c06ca059';
 const urlPoster = 'https://image.tmdb.org/t/p/original';
+const apiTV="https://api.themoviedb.org/3/tv/${id}?api_key=4e190b3de4323c16e946a007c06ca059&language=es-MX"
 const apiMovieUrl=`${apiUrl}/movie/${id}?api_key=${apiKey}&language=es-MX&region=MX`
 const clasificacionPeliculasDiv = document.getElementById('clasificacionPeliculas')
 const ratingDiv = document.getElementById('ratingPeliculas')

@@ -18,7 +18,7 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Populares</a>
+                <a class="nav-link" aria-current="page" href="#">Populares</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="./series.html">Series</a>
@@ -27,7 +27,7 @@
                 <a class="nav-link" href="#">Favoritos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="buscar.html">Buscar</a>
+                <a class="nav-link active" href="buscar.html">Buscar</a>
               </li>
             </ul>
           </div>
@@ -35,12 +35,20 @@
       </nav>
     
     <div class="container">
-        <div class="row d-flex justify-content-center">
-
-        </div>
+        <form class="row">
+            <div class="col-sm-8">
+                <input type="search" name="" id="" class="form-control" placeholder="Ingresa el término">
+            </div>
+            <div>
+                <div class="col-sm-1">
+                    <button class="btn btn-primary">Buscar</button>
+                </div>
+            </div>
+        </form>
     </div>
     
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <script src="./index.js"></script>
+    <script src="./buscar.js"></script>
 </body>
 </html>

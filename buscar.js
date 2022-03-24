@@ -5,7 +5,7 @@ const apiSearchMovie="https://api.themoviedb.org/3/search/movie?api_key=4e190b3d
 const apiUrlT=`&page=1&include_adult=false`
 
 
-const containerCards = document.querySelector('.row'); // cuando se pone un punto es porque realiza la busqueda por el nombre de la clase
+const containerCards = document.getElementById('resultadosSearch'); // cuando se pone un punto es porque realiza la busqueda por el nombre de la clase
 
 const main=()=>{
     fetch(apiSearchMovie).then((respuesta)=> respuesta.json())

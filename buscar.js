@@ -30,7 +30,6 @@ const main=()=>{
     })
 }
 
-main()
 
 
 

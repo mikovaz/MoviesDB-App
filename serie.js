@@ -8,6 +8,7 @@ const apiUrl = 'https://api.themoviedb.org/3';
 const apiKey = '4e190b3de4323c16e946a007c06ca059';
 const urlPoster = 'https://image.tmdb.org/t/p/original';
 const apiTV=`https://api.themoviedb.org/3/tv/${id}?api_key=4e190b3de4323c16e946a007c06ca059&language=es-MX`
+const apiTvCredits=`https://api.themoviedb.org/3/tv/${id}/credits?api_key=4e190b3de4323c16e946a007c06ca059&language=en-US`
 const apiMovieUrl=`${apiUrl}/movie/${id}?api_key=${apiKey}&language=es-MX&region=MX`
 const clasificacionPeliculasDiv = document.getElementById('clasificacionPeliculas')
 const ratingDiv = document.getElementById('ratingPeliculas')
@@ -24,8 +25,8 @@ const mostrarIdPelicula = () => {
             console.log(body)
             const card = `
             <div class="d-flex justify-content-center"><div class="col-sm-5 col-md-5 col-xxl-5 col-xl-5 col-lg-5"><img src="${urlPoster}${body.poster_path}" class="card-img-top" style=""></div></div>
-            <h5 class="card-title text-muted text-center">${body.title}</h5>
-            <p class="card-text font-monospace text-center">${body.release_date}</p>
+            <h5 class="card-title text-muted text-center">${body.original_name}</h5>
+            <p class="card-text font-monospace text-center">${body.first_air_date}</p>
             <div class="d-flex justify-content-center "><p class="card-text m-3 col-sm-10 col-md-10 col-xxl-10 col-xl-10 col-lg-10"><span class="fw-bold">Detalles:</span> ${body.overview}<p></div>
             `;
             mostrarGeneros(body)

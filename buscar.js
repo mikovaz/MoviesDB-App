@@ -10,6 +10,13 @@ const containerCards = document.getElementById('resultadosSearch'); // cuando se
 
 
 const main=(palabra)=>{
+    const tamCards = containerCards.children
+    if(tamCards.length>0) {
+        const cards= Array.from(tamCards)
+        cards.forEach((card)=>{
+            containerCards.removeChild(card)
+        })
+    }
     const urlSearch = `${apiUrl}${palabra.cajaBusqueda}${apiUrlT}`
     console.log(urlSearch)
     fetch(urlSearch).then((respuesta)=> respuesta.json())

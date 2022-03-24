@@ -6,22 +6,22 @@ console.log(containerCards)
 const apiUrl = 'https://api.themoviedb.org/3';
 const apiKey = '4e190b3de4323c16e946a007c06ca059';
 const urlPoster = 'https://image.tmdb.org/t/p/original';
-
+const apiTV="https://api.themoviedb.org/3/tv/popular?api_key=4e190b3de4323c16e946a007c06ca059&language=es-MX&page=1"
 
 const recuperarPopulares = () => {
     const url = `${apiUrl}/movie/popular?api_key=${apiKey}&language=es-MX&region=MX&page=1`
 
-    fetch(url).then((respuesta)=> respuesta.json())
+    fetch(apiTV).then((respuesta)=> respuesta.json())
         .then((body)=> {            
             const peliculas = body.results;
-
+            console.log(body)
             peliculas.forEach(pelicula => {
                 const card = `
                 <div class="card col-sm-3 m-3 shadow-lg bg-light" ondblclick="irPelicula('${pelicula.id}')">
-                    <img src="${urlPoster}${pelicula.backdrop_path}" class="card-img-top mt-3 rounded" alt="${pelicula.original_title}">
+                    <img src="${urlPoster}${pelicula.poster_path}" class="card-img-top mt-3 rounded" alt="${pelicula.original_title}">
                     <div class="card-body">
-                        <h3>${pelicula.original_title}</h3>
-                        <h6 class="text-muted">Fecha de lanzamiento: ${pelicula.release_date}</h6>
+                        <h3>${pelicula.original_name}</h3>
+                        <h6 class="text-muted">Fecha de lanzamiento: ${pelicula.first_air_date}</h6>
                          <p class="card-text">${pelicula.overview}</p>
                          <a href="./pelicula.html?id=${pelicula.id}" ><button type="button" class="btn btn-primary" >Detalles</button></a>
                     </div>

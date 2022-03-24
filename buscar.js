@@ -36,7 +36,14 @@ const main=(palabra)=>{
 
 const valor=(e)=>{
     e.preventDefault();
-    console.log(e)
+    const inputsNode = e.target.querySelectorAll('input');
+    const inputs = Array.from(inputsNode);
+    const inputBusqueda={}
+    inputs.forEach((busqueda)=>{
+        inputBusqueda[busqueda.name] = busqueda.value;
+    })
+    main(inputBusqueda)
+    console.log(inputBusqueda)
 }
 
 

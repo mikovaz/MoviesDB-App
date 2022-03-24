@@ -7,7 +7,7 @@ const urlApiCreditos=`https://api.themoviedb.org/3/movie/${id}/credits?api_key=4
 const apiUrl = 'https://api.themoviedb.org/3';
 const apiKey = '4e190b3de4323c16e946a007c06ca059';
 const urlPoster = 'https://image.tmdb.org/t/p/original';
-const apiTV="https://api.themoviedb.org/3/tv/${id}?api_key=4e190b3de4323c16e946a007c06ca059&language=es-MX"
+const apiTV=`https://api.themoviedb.org/3/tv/${id}?api_key=4e190b3de4323c16e946a007c06ca059&language=es-MX`
 const apiMovieUrl=`${apiUrl}/movie/${id}?api_key=${apiKey}&language=es-MX&region=MX`
 const clasificacionPeliculasDiv = document.getElementById('clasificacionPeliculas')
 const ratingDiv = document.getElementById('ratingPeliculas')
@@ -19,9 +19,9 @@ console.log(apiMovieUrl)
 // fUNCION QUE VA IMPRIMIR LA INFO DE LA API
 const mostrarIdPelicula = () => {
 
-    fetch(apiMovieUrl).then((respuesta)=> respuesta.json())
+    fetch(apiTV).then((respuesta)=> respuesta.json())
         .then((body)=> {            
-            //console.log(body)
+            console.log(body)
             const card = `
             <div class="d-flex justify-content-center"><div class="col-sm-5 col-md-5 col-xxl-5 col-xl-5 col-lg-5"><img src="${urlPoster}${body.poster_path}" class="card-img-top" style=""></div></div>
             <h5 class="card-title text-muted text-center">${body.title}</h5>

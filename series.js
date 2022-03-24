@@ -34,7 +34,7 @@ const recuperarPopulares = () => {
 }
 
 const irPelicula=(idPelicula)=>{
-    window.location.assign(`/pelicula.html?id=${idPelicula}`)
+    window.location.assign(`/serie.html?id=${idPelicula}`)
 }
 
 // la siguiente tarea es  crear un nuevo archivo html que sea pelicula.html y un nuevo archivo de js que sea pelicula.js, la idea es que nosotros hagamos url/pelicula.html?ID=234234 y que nos regrese la descripcion de la peliculas. En la documentacion de movie DB existe el get/movie/{movie_id}

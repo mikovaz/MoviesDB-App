@@ -7,6 +7,8 @@ const apiUrlT=`&page=1&include_adult=false`
 
 const containerCards = document.getElementById('resultadosSearch'); // cuando se pone un punto es porque realiza la busqueda por el nombre de la clase
 
+
+
 const main=(palabra)=>{
     const urlSearch = `${apiUrl}${palabra}${apiUrlT}`
     console.log(urlSearch)
@@ -32,7 +34,10 @@ const main=(palabra)=>{
     })
 }
 
-
+const valor=(e)=>{
+    e.preventDefault();
+    console.log(e)
+}
 
 
 

@@ -1,8 +1,8 @@
-/**GITHUB TEST */
 const containerCards = document.querySelector('.row'); // cuando se pone un punto es porque realiza la busqueda por el nombre de la clase
 const apiUrl = 'https://api.themoviedb.org/3';
 const apiKey = '4e190b3de4323c16e946a007c06ca059';
 const urlPoster = 'https://image.tmdb.org/t/p/original';
+const urlFireFavo="https://peliculas-app-b6b6c-default-rtdb.firebaseio.com/favoritos.json"
 
 let peliculas={}
 
@@ -33,7 +33,10 @@ const recuperarPopulares = () => {
             recuFav((body)=>{
                 const fav=Object.values(body)
                 fav.forEach((favorito)=>{
+                    console.log(favorito.peliculaId)
                     const button=document.getElementById(favorito.peliculaId)
+                    button.classList.remove('btn-outline-danger')
+                    button.classList.add('btn-danger')
                 })
             })
         });

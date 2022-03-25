@@ -1,19 +1,17 @@
 /**GITHUB TEST */
 const containerCards = document.querySelector('.row'); // cuando se pone un punto es porque realiza la busqueda por el nombre de la clase
-
-console.log(containerCards)
-
 const apiUrl = 'https://api.themoviedb.org/3';
 const apiKey = '4e190b3de4323c16e946a007c06ca059';
 const urlPoster = 'https://image.tmdb.org/t/p/original';
 
+let peliculas={}
 
 const recuperarPopulares = () => {
     const url = `${apiUrl}/movie/popular?api_key=${apiKey}&language=es-MX&region=MX&page=1`
 
     fetch(url).then((respuesta)=> respuesta.json())
         .then((body)=> {            
-            const peliculas = body.results;
+            peliculas = body.results;
 
             peliculas.forEach(pelicula => {
                 const card = `
@@ -25,12 +23,37 @@ const recuperarPopulares = () => {
                          <p class="card-text">${pelicula.overview}</p>
                          <a href="./pelicula.html?id=${pelicula.id}" ><button type="button" class="btn btn-primary" >Detalles</button></a>
                     </div>
+                    <div class="d-flex justify-content-end">
+                        <button id="${pelicula.id}" onclick="marcarFav(${pelicula.id})" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
+                    </div>
                 </div>
                 `
                 containerCards.insertAdjacentHTML('afterbegin', card)
             });
-
+            recuFav((body)=>{
+                const fav=Object.values(body)
+                fav.forEach((favorito)=>{
+                    const button=document.getElementById(favorito.peliculaId)
+                })
+            })
         });
+}
+
+const marcarFav =(id)=>{
+    const peli= peliculas.find((pelicula)=>pelicula.id==id)
+    crearPeliFav(
+        peli.id,
+        peli.backdrop_path,
+        peli.original_title,
+        peli.release_date,
+        peli.overview,
+        (body)=>{
+            console.log(peli.id)
+            const button=document.getElementById(peli.id)
+            button.classList.remove('btn-outline-danger')
+            button.classList.add('btn-danger')
+        }
+    )
 }
 
 const irPelicula=(idPelicula)=>{

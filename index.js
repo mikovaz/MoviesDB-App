@@ -24,7 +24,7 @@ const recuperarPopulares = () => {
                          <a href="./pelicula.html?id=${pelicula.id}" ><button type="button" class="btn btn-primary" >Detalles</button></a>
                     </div>
                     <div class="d-flex justify-content-end">
-                        <button id="${pelicula.id}" onclick="marcarFav(${pelicula.id})" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
+                        <button id="${pelicula.id}" onclick="marcarFav('${pelicula.id}')" class="btn btn-outline-danger"><i class="bi bi-heart"></i></button>
                     </div>
                 </div>
                 `
@@ -33,7 +33,7 @@ const recuperarPopulares = () => {
             recuFav((body)=>{
                 const fav=Object.values(body)
                 fav.forEach((favorito)=>{
-                    console.log(favorito.peliculaId)
+                    //console.log(favorito.peliculaId)
                     const button=document.getElementById(favorito.peliculaId)
                     button.classList.remove('btn-outline-danger')
                     button.classList.add('btn-danger')
@@ -42,21 +42,32 @@ const recuperarPopulares = () => {
         });
 }
 
-const marcarFav =(id)=>{
+const marcarFav = async(id)=>{
     const peli= peliculas.find((pelicula)=>pelicula.id==id)
-    crearPeliFav(
-        peli.id,
-        peli.backdrop_path,
-        peli.original_title,
-        peli.release_date,
-        peli.overview,
-        (body)=>{
-            console.log(peli.id)
-            const button=document.getElementById(peli.id)
-            button.classList.remove('btn-outline-danger')
-            button.classList.add('btn-danger')
-        }
-    )
+    let favoGuardado=await buscarFav(id)
+    console.log(favoGuardado)
+    if(favoGuardado==id){
+        console.log('Ya existe')
+        borrarFav(id)
+        const button=document.getElementById(peli.id)
+                button.classList.remove('btn-danger')
+                button.classList.add('btn-outline-danger')
+    }
+    else{
+        crearPeliFav(
+            peli.id,
+            peli.backdrop_path,
+            peli.original_title,
+            peli.release_date,
+            peli.overview,
+            (body)=>{
+            //    console.log(peli.id)
+                const button=document.getElementById(peli.id)
+                button.classList.remove('btn-outline-danger')
+                button.classList.add('btn-danger')
+            }
+        )
+    }
 }
 
 const irPelicula=(idPelicula)=>{
